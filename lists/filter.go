@@ -11,7 +11,7 @@ func FilterLess(list []int, key int) []int {
 		return FilterLess(list[1:], key)
 	}
 
-	return []int{}bjhvb
+	return append(list[:1], FilterLess(list[1:], key)...)
 }
 
 // Liefert eine Liste mit allen Elementen aus list, die echt größer als key sind.
@@ -26,5 +26,6 @@ func FilterGreater(list []int, key int) []int {
 		return FilterGreater(list[1:], key)
 	}
 
-	return []int{}bjhvb
+	return append(list[:1], FilterGreater(list[1:], key)...)
+	// ... merken, :1 da 0 ja schon
 }
